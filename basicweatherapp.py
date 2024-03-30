@@ -17,20 +17,20 @@ class Weather(Tk):
         super().__init__()
         self.title("Weather App")
         self.geometry("800x480")
-        self.iconbitmap(r"Images/weather_icon.ico")
+        self.iconbitmap(r"weather_icon.ico")
         self.resizable(False,False)
         # self.__gui()
         threading.Thread(target=self.__gui).start()
 
     def __gui(self):
         # placing the black border for search
-        self.img = Image.open(r"Images/black_border.png")
+        self.img = Image.open(r"black_border.png")
         self.resizeimg = self.img.resize((275, 35))
         self.finalimg = ImageTk.PhotoImage(self.resizeimg)
         Label(image=self.finalimg).place(x=20, y=20)
 
         # creating the search button
-        self.img1 = Image.open(r"Images/search_btn.png")
+        self.img1 = Image.open(r"search_btn.png")
         self.resizeim1 = self.img1.resize((29, 29))
         self.finalimg1 = ImageTk.PhotoImage(self.resizeim1)
         self.b1 = Button(image=self.finalimg1, bg="black", command=self.threading)
@@ -47,7 +47,7 @@ class Weather(Tk):
         Label(text="Current Weather :", font='Arial 14 bold', fg="red").place(x=590, y=7)
 
         # location image logo
-        self.img2 = Image.open(r'Images/location.png')
+        self.img2 = Image.open(r'location.png')
         self.resizeimg2 = self.img2.resize((20, 20))
         self.finalimg2 = ImageTk.PhotoImage(self.resizeimg2)
         Label(image=self.finalimg2).place(x=595, y=36)
@@ -61,7 +61,7 @@ class Weather(Tk):
         self.timelbl.place(x=590, y=60)
 
         # creating the label for the logo according to main
-        self.img3 = Image.open(r"Icons/main.png")
+        self.img3 = Image.open(r"main.png")
         self.resizeimg3 = self.img3.resize((200, 190))
         self.finalimg3 = ImageTk.PhotoImage(self.resizeimg3)
         self.icons = Label(image=self.finalimg3)
@@ -78,19 +78,19 @@ class Weather(Tk):
         self.feel.place(x=280, y=245)
 
         # sunrise logo
-        self.finalimg4 = ImageTk.PhotoImage(image=Image.open(r"Images/sunrise.png").resize((40, 40)))
+        self.finalimg4 = ImageTk.PhotoImage(image=Image.open(r"sunrise.png").resize((40, 40)))
         Label(image=self.finalimg4).place(x=560, y=150)
         self.sunrise = Label(text="Sunrise : ", font=("Segoe UI", 14, 'bold'))
         self.sunrise.place(x=603, y=155)
 
         # sunset logo
-        self.finalimg5 = ImageTk.PhotoImage(image=Image.open(r"Images/sunset.png").resize((40, 30)))
+        self.finalimg5 = ImageTk.PhotoImage(image=Image.open(r"sunset.png").resize((40, 30)))
         Label(image=self.finalimg5).place(x=560, y=215)
         self.sunset = Label(text="Sunset : ", font=("Segoe UI", 14, 'bold'))
         self.sunset.place(x=603, y=210)
 
         # bottom bar
-        self.finalimg6 = ImageTk.PhotoImage(image=Image.open(r'Images/bottom_bar.png').resize((770, 70)))
+        self.finalimg6 = ImageTk.PhotoImage(image=Image.open(r'bottom_bar.png').resize((770, 70)))
         Label(image=self.finalimg6, bg='#00b7ff').place(x=5, y=330)
 
         # placing the labels
@@ -201,7 +201,7 @@ class Weather(Tk):
             self.set_image(img)
 
     def set_image(self, img):
-        self.img3 = Image.open(f"Icons/{img}")
+        self.img3 = Image.open(f"{img}")
         self.resizeimg3 = self.img3.resize((190, 190))
         self.finalimg3 = ImageTk.PhotoImage(self.resizeimg3)
         self.icons = Label(image=self.finalimg3)
